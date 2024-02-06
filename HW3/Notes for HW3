@@ -1,0 +1,85 @@
+Task 1 is just Q&A
+
+
+Task 2 use:
+"traces_attack_hw3.zip"
+
+Key is fixed and unknown
+Plaintext inputs are random
+textin_attack.npy => plaintext
+textout_attack.npy => ciphertext
+traces_attack_int16.npy => actual traces
+
+Use load with mmap_mode ?
+
+HOW TO PLOT:
+import holoviews as hv
+hv.extension('bokeh')
+hv.Curve(traces[1,:]).opts(width=1000,height=600)
+
+plaintext = np.load("textin_attack.npy)  # To load the plaintext
+np.shape(plaintext) = (20000, 16)  # 20k measurements for each key byte
+traces.shape = (20000,24000)  # 20k measurements in 24k points in time
+
+
+
+Q-2(b):
+
+a) can be done easily i guess
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+HW = simply count the ones
+
+
+=> SNR = a metric to quantify this information leakage for each point of a power trace
+=> The signal corresponds to the component of the power consumption that is exploitable.
+=> The SNR quantifies how much information is leaking from a point of a
+power trace. The higher the SNR, the higher is the leakage.
+
+
+=> DUT has a fixed key
+=> It is supplied fixed and random inputs and traces are collected for these 2 classes
+=> By splitting the traces into two sets Qfixed and Qrandom, Welch’s t-test can be
+conducted independently for each sample point of the measured traces
+
+=> Pearson’s χ2-test of independence is used to evaluate the dependence between unpaired
+observations on two variables
+
+=> In contrast to Welch’s t-test, this is not achieved by comparing estimated means (nor any specific statistical moment), but instead the observations
+are stored in a contingency table and the frequencies of each cell of the table are used to derive the test statistic which follows a χ2 distribution
+
+=> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
